@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Users{% endblock %}
+{% block content %}
+  <h3 class="text-white">User Registrations</h3>
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Approved</th>
+        <th>Agent</th>
+        <th>Partnership</th>
+        <th>Balance</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for u in users %}
+        <tr>
+          <td>{{ u['id'] }}</td>
+          <td>{{ u['username'] }}</td>
+          <td>{% if u['approved']==1 %}Yes{% else %}No{% endif %}</td>
+          <td>{% if u['agent_request']==1 %}Yes{% else %}No{% endif %}</td>
+          <td>{% if u['partnership_request']==1 %}Yes{% else %}No{% endif %}</td>
+          <td>{{ u['balance'] }}</td>
+          <td>
+            {% if u['approved']==0 %}
+              <a class="btn btn-sm btn-success" href="{{ url_for('admin_user_approve', uid=u['id']) }}">Approve User</a>
+              <a class="btn btn-sm btn-danger" href="{{ url_for('admin_user_decline', uid=u['id']) }}" onclick="return confirm('Decline and delete user?')">Decline</a>
+            {% endif %}
+
+            {% if u['agent_request']==0 %}
+              <a class="btn btn-sm btn-primary" href="{{ url_for('admin_agent_approve', uid=u['id']) }}">Approve Agent</a>
+            {% endif %}
+
+            {% if u['partnership_request']==0 %}
+              <a class="btn btn-sm btn-warning" href="{{ url_for('admin_partnership_approve', uid=u['id']) }}">Approve Partnership</a>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

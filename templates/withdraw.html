@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Withdraw{% endblock %}
+{% block content %}
+  <div class="col-md-6 mx-auto text-white">
+    <h3>Request Withdraw</h3>
+    <form method="POST">
+      <div class="mb-3">
+        <input class="form-control" name="amount" type="number" min="1" placeholder="Amount (points)" required>
+      </div>
+      <div class="mb-3">
+        <input class="form-control" name="details" placeholder="Payment details (e.g., phone or PayPal)"></div>
+      <button class="btn btn-warning" type="submit">Submit Request</button>
+    </form>
+  </div>
+{% endblock %}

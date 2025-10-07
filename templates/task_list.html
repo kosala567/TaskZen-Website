@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Tasks{% endblock %}
+{% block content %}
+  <h3 class="text-white">Available Tasks</h3>
+  <div class="list-group">
+    {% for t in tasks %}
+      <a class="list-group-item list-group-item-action bg-dark text-white mb-2" href="{{ url_for('task_page', task_id=t['id']) }}">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ t['title'] }}</h5>
+          <small>{{ t['reward'] }} pts</small>
+        </div>
+        <p class="mb-1">{{ t['description']|truncate(140) }}</p>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}

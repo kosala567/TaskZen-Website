@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Messages{% endblock %}
+{% block content %}
+  <h3 class="text-white">Messages</h3>
+  {% for m in messages %}
+    <div class="card bg-dark text-white mb-2 p-2">
+      <h5>{{ m['username'] }} <small class="text-muted">({{ m['email'] }})</small></h5>
+      <p>{{ m['message'] }}</p>
+      <small class="text-muted">{{ m['created_at'] }}</small>
+    </div>
+  {% endfor %}
+{% endblock %}

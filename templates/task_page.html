@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Task{% endblock %}
+{% block content %}
+  <div class="text-white">
+    <h3>{{ task['title'] }}</h3>
+    <p>{{ task['description']|nl2br }}</p>
+    <p><strong>Reward: </strong>{{ task['reward'] }} points</p>
+
+    {% if completed %}
+      <div class="alert alert-success">You already completed this task ✅</div>
+    {% else %}
+      <form method="POST">
+        <button class="btn btn-success" type="submit">Mark as Completed & Claim</button>
+      </form>
+    {% endif %}
+    <a class="btn btn-link text-white mt-3" href="{{ url_for('task_list') }}">Back to tasks</a>
+  </div>
+{% endblock %}

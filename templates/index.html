@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+  <div class="text-center text-white">
+    <h1 class="display-5">{{ SITE_NAME }}</h1>
+    <p class="lead">Earn points by completing micro-tasks (watch videos, visit links, fill forms).</p>
+    {% if not session.get('username') %}
+      <a class="btn btn-success me-2" href="{{ url_for('register') }}">Get Started</a>
+      <a class="btn btn-outline-light" href="{{ url_for('login') }}">Login</a>
+    {% else %}
+      <a class="btn btn-primary" href="{{ url_for('dashboard') }}">Go to Dashboard</a>
+    {% endif %}
+  </div>
+{% endblock %}

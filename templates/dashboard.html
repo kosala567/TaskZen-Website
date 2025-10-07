@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+  <div class="row text-white">
+    <div class="col-md-8">
+      <h3>Welcome, {{ username }}</h3>
+      <p>Completed tasks: <strong>{{ completed }}</strong></p>
+      <p>Total earned points: <strong>{{ earnings }}</strong></p>
+      <p>Available balance: <strong>{{ balance }}</strong> points</p>
+      <a class="btn btn-outline-light me-2" href="{{ url_for('task_list') }}">View Tasks</a>
+      <a class="btn btn-warning" href="{{ url_for('withdraw') }}">Request Withdraw</a>
+    </div>
+    <div class="col-md-4">
+      <div class="card bg-dark text-white p-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a class="text-white" href="{{ url_for('contact') }}">Contact Admin</a></li>
+          <li><a class="text-white" href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}

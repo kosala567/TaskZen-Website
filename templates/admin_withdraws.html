@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Withdraws{% endblock %}
+{% block content %}
+  <h3 class="text-white">Withdraw Requests</h3>
+  <table class="table table-dark">
+    <thead><tr><th>ID</th><th>User</th><th>Amount</th><th>Details</th><th>Status</th><th>Requested</th><th>Actions</th></tr></thead>
+    <tbody>
+      {% for w in withdraws %}
+        <tr>
+          <td>{{ w['id'] }}</td>
+          <td>{{ w['username'] }}</td>
+          <td>{{ w['amount'] }}</td>
+          <td>{{ w['details'] }}</td>
+          <td>{{ w['status'] }}</td>
+          <td>{{ w['requested_at'] }}</td>
+          <td>
+            {% if w['status']=='pending' %}
+              <a class="btn btn-sm btn-success" href="{{ url_for('admin_withdraw_approve', wid=w['id']) }}">Approve</a>
+              <a class="btn btn-sm btn-danger" href="{{ url_for('admin_withdraw_decline', wid=w['id']) }}">Decline</a>
+            {% else %}
+              <span class="text-muted">Processed</span>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

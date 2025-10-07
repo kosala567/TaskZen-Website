@@ -1,0 +1,188 @@
+/* ----------------- Root & Theme Variables ----------------- */
+:root {
+  --bg: #f8f9fa;
+  --text: #111;
+  --card: #fff;
+  --muted: #6c757d;
+  --accent: #6ea8fe;
+  --success: #28a745;
+  --danger: #dc3545;
+  --warning: #ffc107;
+  --info: #17a2b8;
+
+  --transition: all 0.4s ease;
+}
+
+[data-theme="dark"] {
+  --bg: #0b0c10;
+  --text: #e9eef6;
+  --card: #111217;
+  --muted: #9aa3b2;
+  --accent: #6ea8fe;
+}
+
+/* ----------------- Global Styles ----------------- */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+  transition: var(--transition);
+}
+
+/* Smooth link hover */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover { color: #a6c8ff; }
+
+/* ----------------- Navbar ----------------- */
+.navbar {
+  background: rgba(17, 18, 23, 0.95);
+  padding: 12px 0;
+  transition: var(--transition);
+}
+.navbar .navbar-brand {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--text) !important;
+}
+.navbar .btn {
+  margin-left: 0.3rem;
+  transition: var(--transition);
+}
+
+/* ----------------- Cards & List Groups ----------------- */
+.card, .list-group-item {
+  background: var(--card) !important;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 0.5rem;
+  transition: var(--transition);
+}
+.list-group-item:hover {
+  background: rgba(110,168,254,0.05);
+  cursor: pointer;
+}
+.card h5, .card p, .list-group-item h5, .list-group-item p {
+  color: var(--text);
+}
+
+/* ----------------- Forms ----------------- */
+.form-control {
+  background: #f1f3f5;
+  color: var(--text);
+  border-color: rgba(0,0,0,0.1);
+  border-radius: 0.4rem;
+  transition: var(--transition);
+}
+[data-theme="dark"] .form-control {
+  background: #0f1216;
+  color: var(--text);
+  border-color: rgba(255,255,255,0.06);
+}
+.form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 5px rgba(110,168,254,0.5);
+}
+
+/* ----------------- Buttons ----------------- */
+.btn {
+  border-radius: 0.4rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+/* Outline light buttons */
+.btn-outline-light {
+  border-color: rgba(255,255,255,0.08);
+  color: var(--text);
+}
+.btn-outline-light:hover {
+  color: var(--accent);
+  background: rgba(110,168,254,0.1);
+}
+
+/* Colored buttons */
+.btn-success { background: var(--success); border: 1px solid var(--success); color: #fff; }
+.btn-success:hover { background: #218838; border-color: #218838; }
+.btn-danger { background: var(--danger); border: 1px solid var(--danger); color: #fff; }
+.btn-danger:hover { background: #c82333; border-color: #c82333; }
+.btn-warning { background: var(--warning); border: 1px solid var(--warning); color: #000; }
+.btn-warning:hover { background: #e0a800; border-color: #d39e00; }
+.btn-info { background: var(--info); border: 1px solid var(--info); color: #fff; }
+.btn-info:hover { background: #138496; border-color: #117a8b; }
+
+/* ----------------- Alerts ----------------- */
+.alert {
+  border-radius: 0.4rem;
+  transition: var(--transition);
+}
+.alert-info { background: #e7f1ff; color: var(--accent); border: 1px solid rgba(110,168,254,0.5); }
+[data-theme="dark"] .alert-info { background: #1a1c22; color: var(--accent); border: 1px solid rgba(110,168,254,0.5); }
+.alert-success { background: #d4edda; color: var(--success); border: 1px solid rgba(40,167,69,0.5); }
+[data-theme="dark"] .alert-success { background: #1b2a1b; color: var(--success); border: 1px solid rgba(40,167,69,0.5); }
+.alert-danger { background: #f8d7da; color: var(--danger); border: 1px solid rgba(220,53,69,0.5); }
+[data-theme="dark"] .alert-danger { background: #2a1b1b; color: var(--danger); border: 1px solid rgba(220,53,69,0.5); }
+.alert-warning { background: #fff3cd; color: var(--warning); border: 1px solid rgba(255,193,7,0.5); }
+[data-theme="dark"] .alert-warning { background: #2a261b; color: var(--warning); border: 1px solid rgba(255,193,7,0.5); }
+
+/* ----------------- Typography ----------------- */
+h1,h2,h3,h4,h5,h6 { color: var(--text); font-weight: 600; }
+.text-white { color: var(--text) !important; }
+
+/* ----------------- Containers ----------------- */
+.container { max-width: 960px; padding: 15px; }
+
+/* ----------------- Profile Section ----------------- */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--card);
+  border-radius: 0.6rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: var(--transition);
+}
+.profile-card img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+.profile-card .profile-info h5 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+.profile-card .profile-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ----------------- Animations ----------------- */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.card, .list-group-item, .profile-card {
+  transform: translateY(15px);
+  animation: floatUp 0.5s ease forwards;
+}
+@keyframes floatUp {
+  to { transform: translateY(0); }
+}
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 768px) {
+  .navbar .btn { margin: 5px 2px 0 0; }
+}
